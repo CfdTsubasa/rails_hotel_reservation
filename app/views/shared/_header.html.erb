@@ -1,0 +1,28 @@
+<header>
+  <nav class="nav-items px-3 nav">
+    <div class="nav-items">
+      <%= link_to "POTESHARE", pages_home_path,{class: "nav-item"} %>
+      <% if user_signed_in? %>
+        <%= form_with url: rooms_search_path,method: :get, local: true do |f| %>
+            <%= f.text_field :search_area,{class: "search-box",:placeholder => "Search Area" } %>
+            <%= f.text_field :search_keyword,{class: "search-box",:placeholder => "Search Keyword"} %>
+          <%= f.submit "",class: "d-none submit-d-none" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <% if user_signed_in? %>  <!-- deviseのメソッドで、「ログインしているかしていないかでtrue or falseを返す」メソッド -->
+        <%= link_to "新規投稿", new_room_path,{class: "nav-item"} %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "nav-item" %>
+        <%= link_to "登録済みの部屋", user_path(current_user.id),{class: "nav-item"} %>
+        <%= link_to "予約履歴", reservations_path,{class: "nav-item"} %>
+        <%= link_to "部屋一覧", rooms_path,{class: "nav-item"} %>
+        <%= link_to "ユーザー一覧", users_path,{class: "nav-item"} %>
+        <%= link_to "アカウント設定", users_modify_path,{class: "nav-item"} %>
+      <% else %>
+        <%= link_to("新規登録", new_user_registration_path,{class: "nav-item"}) %>
+        <%= link_to "ログイン", new_user_session_path,{class: "nav-item"} %>
+      <% end %>
+    </div>
+  </nav>
+</header>

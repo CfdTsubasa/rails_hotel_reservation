@@ -1,0 +1,40 @@
+<h1>予約確認</h1>
+<p>-- Confirm Reservation --</p>
+<h3>
+	合計料金：
+	<% @reservation.total_price = @room.price * @reservation.persons %>
+	<%= @reservation.total_price %><br>
+</h3>
+<h3>
+	予約人数：
+	<%= @reservation.persons %><br>
+</h3>
+<h3>
+	部屋番号：
+	<%= @reservation.room_id %><br>
+</h3>
+<h3>
+	開始日：
+	<%= @reservation.start_date %><br>
+</h3>
+<h3>
+	終了日：
+	<%= @reservation.end_date %><br>
+</h3>
+
+<%= form_for @reservation, method: :post, url: reservations_complete_path do |form| %>
+	<%= form.hidden_field :total_price %>
+	<%= form.hidden_field :persons %>
+	<%= form.hidden_field :room_id %>
+	<%= form.hidden_field :start_date %>
+	<%= form.hidden_field :end_date %>
+	<%= form.submit '送信する' %>
+<% end %>
+
+<%= form_for @reservation, method: :post, url: reservations_back_path do |form| %>
+	<%= form.hidden_field :total_price %>
+	<%= form.hidden_field :persons %>
+  <%= form.hidden_field :room_id %>
+	<%= form.submit '入力画面に戻る' %>
+<% end %>
+</div>

@@ -1,0 +1,12 @@
+<h1>POTESHARE</h1>
+<p>-- Welcome --</p>
+
+<article>
+  <% if user_signed_in? %>
+    <%= form_with url: rooms_search_path,method: :get, local: true do |f| %>
+        エリア検索：<%= f.text_field :search_area,{class: "search-box",:placeholder => "Search Area" } %>
+      <%= f.submit "",class: "d-none submit-d-none" %>
+    <% end %>
+  <% end %>
+  <%= image_tag 'top_image.jpeg',:size => '750x536' %>
+<article>
