@@ -1,0 +1,19 @@
+<h1>予約一覧</h1>
+<p class="subtitle">-- Reservations --</p>
+
+    <% @reservations.each do |reservation| %>
+          <div> 
+            <p><%=link_to "予約ID：#{reservation.id}", reservation_path(reservation.id) %></p>
+            <div>
+              <p><span>予約人数:</span><%= reservation.persons %></p>
+              <p><span>合計料金:¥</span><%= reservation.total_price %></p>
+            </div>
+            <div>
+              <p><span>開始日:</span><%= reservation.start_date %></p>
+              <p><span>終了日:</span><%= reservation.end_date %></p>
+              <p><span>予約完了日:</span><%= reservation.created_at.strftime("%Y年%m月%d日") %></p>
+            </div>
+          </div>
+          <hr>
+    <% end %>
+    <%= will_paginate @books, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>

@@ -1,0 +1,24 @@
+<h1>アカウント設定</h1>
+<p class="subtitle">-- Account Setting --</p>
+
+<%= form_for @user, method: :post, url: users_profile_path do |f| %>
+
+  <span class="image">
+    <%= f.label :プロフィール画像 %><br />
+    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png",style: "margin: 0 auto;"  %>
+  </span>
+
+  <div class="field">
+    <%= f.label :名前 %><br />
+    <%= f.text_field :name ,value:@user.name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :自己紹介 %><br />
+    <%= f.text_field :introduction %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+<% end %>

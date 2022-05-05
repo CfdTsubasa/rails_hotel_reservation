@@ -1,0 +1,10 @@
+  <h1>ユーザー一覧</h1>
+  <p class="subtitle">-- Users#index --</p>
+
+  <% @users.each do |user| %>
+    <hr width="40%">
+    <%= image_tag user.display_image if user.image.attached? %>
+    <p><span></span><%=link_to user.name, user_path(user.id) %></p>
+    <p><span>自己紹介: </span><%=link_to user.introduction, user_path(user.id) %></p>
+  <% end %>
+

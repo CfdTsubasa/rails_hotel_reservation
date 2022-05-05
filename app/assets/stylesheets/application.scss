@@ -1,0 +1,61 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*
+ *= require rails_bootstrap_forms
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "メイリオ",
+  "Meiryo",
+  "ヒラギノ角ゴ Pro W3",
+  "Hiragino Kaku Gothic Pro",
+  "MS Ｐゴシック",
+  sans-serif;
+}
+a{
+  color: #797979;
+  text-decoration: none;
+}
+header{
+  margin-top: 15px;
+}
+footer{
+  margin-top: 30px;
+}
+.subtitle{
+  margin-bottom: 40px;
+}
+.col{
+  display:inline-block;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.col-index {
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+.nav-items{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.container{
+  display: flex;
+}
+.search-box{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.nav-item{
+  margin-right: 15px;
+}
+
+.submit-d-none{
+  display: none;
+}

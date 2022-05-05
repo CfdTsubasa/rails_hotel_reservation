@@ -1,0 +1,33 @@
+<h1>検索結果</h1>
+<p class="subtitle">-- Search Result --</p>
+
+<h4>該当件数：<%= @count %>&nbsp;件</h4>
+<% if @count == 0 %>
+  <p>該当する部屋は見つかりませんでした。</p>
+<% else %>
+<div class="container">
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <div class="col">
+        <div style="display:flex;">
+          <div>
+            <% if room.image.attached? %>
+              <%= image_tag room.customize_image(150,150) %>
+            <% else %>
+              <%= image_tag 'default_room.jpeg',:size => '150x150' %>
+            <% end %>
+          </div>
+
+          <div>
+            <p><%=link_to room.name, room_path(room.id) %></p>
+            <p><span>場所:</span><%= room.address %></p>
+            <p><span>オーナー: </span><%=link_to room.user.name, user_path(room.user.id) %></p>
+            <p><span>内容: </span><%=link_to room.content, room_path(room.id) %></p>
+            <p><span>¥</span><%= room.price %></p>
+          </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

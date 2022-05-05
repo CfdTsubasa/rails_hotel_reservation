@@ -1,0 +1,26 @@
+<h1>ルーム新規投稿</h1>
+<p class="subtitle">-- Post Room --</p>
+
+<%= render 'shared/error_messages', model: @room %>
+
+<%= form_for @room do |f| %>
+  <p>
+      <%= f.label :name,"ルーム名(Name)" %><span style="color:red;">*</span>
+      <%= f.text_field :name %>
+    </p>
+  <p>
+    <%= f.label :content,"ルーム紹介(Content)" %><span style="color:red;">*</span>
+    <%= f.text_field :content %>
+  </p>
+  <p>
+    <%= f.label :address,"住所(Address)" %><span style="color:red;">*</span>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :price,"料金(Price)" %><span style="color:red;">*</span>
+    <%= f.number_field :price %>
+  </p>
+    <%= f.label :price,"ルーム画像(Image)" %><span style="color:red;">*</span>
+    <%= f.file_field :image , accept: "image/jpeg,image/gif,image/png",class: "",style: "margin: 0 auto;"  %>
+  <%= f.submit %>
+<% end %>
